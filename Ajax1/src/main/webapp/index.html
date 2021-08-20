@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<script type="text/javascript">
+function Hello()
+{
+	alert("in hello function");
+	var req=new XMLHttpRequest();
+	req.open("GET","log",true);
+	req.send();
+	req.onreadystatechange=function()
+	{
+		alert(req.status)
+		alert(req.readyState);
+		if(req.readyState==4 &&req.status==200)
+			{
+			document.getElementById("t1").innerHTML=req.responseText;
+			
+			}
+	}
+	
+	}
+
+
+</script>
+
+
+</head>
+<body>
+<input type="button" value="ok" onclick="Hello()">
+<p id="t1"></p>
+
+</body>
+</html>
